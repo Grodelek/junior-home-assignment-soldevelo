@@ -8,15 +8,21 @@ public class Main {
 
     public static void main(String[] args) {
         for (int i = 1; i <= LIMIT; i++) {
-            if (i % LOW_DIVISOR == 0 && i % ADVISORY_DIVISOR == 0) {
-                System.out.println("LOWADVISORY");
-            } else if (i % LOW_DIVISOR == 0) {
-                System.out.println("LOW");
-            } else if (i % ADVISORY_DIVISOR == 0) {
-                System.out.println("ADVISORY");
-            } else {
-                System.out.println(i);
-            }
+            System.out.println(combine(i));
         }
+    }
+
+    static String combine(int number) {
+        StringBuilder result = new StringBuilder();
+        if (number % LOW_DIVISOR == 0) {
+            result.append("LOW");
+        }
+        if (number % ADVISORY_DIVISOR == 0){
+            result.append("ADVISORY");
+        }
+        if (result.isEmpty()) {
+            return String.valueOf(number);
+        }
+        return result.toString();
     }
 }
