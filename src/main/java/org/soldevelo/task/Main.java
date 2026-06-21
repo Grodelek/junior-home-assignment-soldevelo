@@ -21,7 +21,7 @@ public class Main {
         }
     }
 
-    static String combine(int number, List<AlertRule> rules) {
+    public static String combine(int number, List<AlertRule> rules) {
         StringBuilder result = new StringBuilder();
         for (AlertRule alertRule : rules){
             if (alertRule.matches(number)){
